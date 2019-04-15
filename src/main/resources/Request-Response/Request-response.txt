@@ -1,0 +1,21 @@
+Request for addCustomer() method-
+
+	POST
+	
+	url: localhost:8080/customer
+	
+	 
+	{
+	"firstName" : "Ritu Raj",
+	"lastName": "Singh",
+	"dob": "1996-07-11",
+	"email": "rituraj0705@gmail.com",
+	"password": "password123"
+	}
+		
+		
+Request for getCustomers() method-
+	
+	GET
+
+	url: localhost:8080/customer/1
