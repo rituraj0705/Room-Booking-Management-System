@@ -3,15 +3,11 @@ package com.rbms;
 
 import static org.junit.Assert.assertEquals;
 
-import java.sql.Date;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -20,10 +16,8 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import com.rbms.roomBooking.Customers;
-import com.rbms.roomBooking.RoomBookingController;
-import com.rbms.roomBooking.RoomBookingService;
+import com.rbms.controller.RoomBookingController;
+import com.rbms.service.RoomBookingServiceImpl;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(value=RoomBookingController.class)
@@ -33,7 +27,7 @@ public class RoomBookingManagementSystemApplicationTests {
 	private MockMvc mockMvc;
 	
 	@MockBean
-	private RoomBookingService roomBookingService;
+	private RoomBookingServiceImpl roomBookingServiceImpl;
 		
 	@PostMapping("/customer")
 	@Test

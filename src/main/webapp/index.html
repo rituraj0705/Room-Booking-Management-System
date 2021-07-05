@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="myApp">
+    <head>
+        <title>Customer OnBoarding</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta charset="UTF-8">
+
+        <!-- load bootstrap and fontawesome via CDN -->
+        <link rel="stylesheet" href="../css/rbms.css" />
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+        <style>
+            html, body
+            {
+                font-size: 1.1em;
+            }
+        </style>
+
+        <!-- load angular via CDN -->
+        <script src="https://code.angularjs.org/1.7.0-rc.0/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.7.0-rc.0/angular-messages.js"></script>
+        <script src=" https://code.angularjs.org/1.7.0-rc.0/angular-resource.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <header>
+			<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<p class="navbar-brand" href="/">Customer OnBoarding</p>
+				</div>
+
+				<!--<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+				</ul>-->
+			</div>
+			</nav>
+		</header>
+
+        <div class="container">
+            <div ng-controller="mainController">
+                <a ng-init="getAllCustomers()"></a>
+                <h1>Add Customer: </h1>
+                <table>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td><label class="required">First Name: </label></td>
+                        <td><input type="text" ng-model="firstName" class="form-control" placeholder="First Name" class="required"></td>
+                    </tr>
+                    <tr>
+                        <td><label class="required">Last Name: </label></td>
+                        <td><input type="text" ng-model="lastName" class="form-control" placeholder="Last Name" class="required"></td>
+                    </tr>
+                    <tr>
+                        <td><label class="required">Email ID: </label></td>
+                        <td><input type="text" ng-model="email" class="form-control" placeholder="someone@abc.com" class="required"></td>
+                    </tr>
+                    <tr>
+                        <td><label class="required">Date Of Birth: </label></td>
+                        <td><input type="date" class="form-control" style="display: flex;" ng-model="dob" class="required"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" >
+                            <a href="#" class="blue-button" style="background-color: cornflowerblue; float: right" ng-click="addCustomer()">Add Customer</a>
+                        </td>
+                    </tr>
+                </table>
+                <br/>
+
+<!--                <a href="#" class="btn btn-default" ng-click="getAllCustomers()">Refresh Customers</a>-->
+                <h1>Existing Customers: </h1>
+                <table>
+                    <tr>
+                        <th>Customer ID</th>
+                        <th>Customer Name</th>
+                        <th>Date Of Birth</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr>
+                        <td colspan="5" ng-if="customers==''" style="text-align: center">No Data Exist</td>
+                    </tr>
+                    <tr ng-repeat="customer in customers">
+
+                        <td>{{ customer.id }}</td>
+                        <td>{{ customer.firstName + " " + customer.lastName}}</td>
+                        <td>{{ customer.dob }}</td>
+                        <td>{{ customer.email}}</td>
+
+                        <td>
+<!--                            <a ng-click="editCustomer(customer)" class="blue-button">Edit</a>-->
+                            <a ng-click="deleteCustomer(customer)" href="#" class="red-button">Delete</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
